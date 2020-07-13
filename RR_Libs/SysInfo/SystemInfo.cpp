@@ -1,14 +1,17 @@
 #include "SystemInfo.h"
 
 #ifdef linux
-    #include <sys/utsname.h>
-    #include <unistd.h>
+
+#include <sys/utsname.h>
+#include <unistd.h>
+
 #endif
 
 #ifdef WINDOWS
-    #include <direct.h>
+#include <direct.h>
 #endif
 
+namespace RRLibs::SysInfo {
 
 static const std::string s_unknown_string = "[????]";
 
@@ -67,6 +70,10 @@ std::string SystemInfo::get_machine() const noexcept {
 
 std::string SystemInfo::get_current_dir() const noexcept {
     char buff[FILENAME_MAX];
-    getcwd( buff, FILENAME_MAX );
+    const char* result = getcwd(buff, FILENAME_MAX);
+    if (result == nullptr)
+        return "";
     return buff;
+}
+
 }

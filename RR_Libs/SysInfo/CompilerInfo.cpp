@@ -1,9 +1,14 @@
 #include "CompilerInfo.h"
 #include "EnumToString.h"
 
+#include <Common/Asserts.h>
 #include <map>
 
+namespace RRLibs::SysInfo {
+
 CompilerEnum CompilerInfo::get_compiler() const noexcept {
+
+
 #if defined(__clang__)
     return CompilerEnum::Clang;
 #endif
@@ -15,7 +20,7 @@ CompilerEnum CompilerInfo::get_compiler() const noexcept {
 #if defined(_MSC_VER)
     return CompilerEnum::Visual_Studio;
 #endif
-return CompilerEnum::Unknown;
+    return CompilerEnum::Unknown;
 }
 
 CppVersionsEnum CompilerInfo::get_cpp_version() const noexcept {
@@ -40,13 +45,32 @@ CppVersionsEnum CompilerInfo::get_cpp_version() const noexcept {
 }
 
 
-std::tuple<int, int, int> CompilerInfo::get_compiler_version() const noexcept {
+Version::Version CompilerInfo::get_compiler_version() const noexcept {
     switch (get_compiler()) {
         case CompilerEnum::GCC:
-            return std::make_tuple(__GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
+            return Version::Version(__GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
     }
-    return std::make_tuple(0,0,0);
+    return Version::Version();
 }
 
+CompilationMode CompilerInfo::get_compilation_mode() const noexcept {
+#ifdef DEBUG
+    return CompilationMode::Debug;
+#endif
 
+#if defined(RELEASE)
+    return CompilationMode::RELEASE;
+#endif
+
+#if defined(RELWITHDEBINFO)
+    return CompilationMode::RELWITHDEBINFO;
+#endif
+
+#if defined(MINSIZEREL)
+    return CompilationMode::MINSIZEREL;
+#endif
+    return CompilationMode::Unknown;
+}
+
+}
 

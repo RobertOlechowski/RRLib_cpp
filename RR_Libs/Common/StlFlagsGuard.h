@@ -3,9 +3,9 @@
 #include "NonCopyableNotMovable.h"
 #include <iomanip>
 
-namespace RRUtils {
+namespace RRLibs::Common {
 
-class StlFlagsGuard : public RRUtils::NonCopyableNotMovable {
+class StlFlagsGuard : public Common::NonCopyableNotMovable {
 public:
     StlFlagsGuard();
 

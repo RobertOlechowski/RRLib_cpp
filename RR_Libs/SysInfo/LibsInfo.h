@@ -5,17 +5,31 @@
 #include "InfoEnums.h"
 
 #include <string>
+#include <Version/Version.h>
 
-class LibsInfo : public RRUtils::NonCopyableNotMovable{
+namespace RRLibs::SysInfo {
+
+class LibsInfo : public Common::NonCopyableNotMovable {
 public:
     LibsInfo();
 
-    std::string get_openCV() const noexcept;
+    Version::Version get_openCV() const noexcept;
+
+    Version::Version get_boost_version() const noexcept;
+
+    Version::Version get_libc_version() const noexcept;
+
+    Version::Version get_mmal_version() const noexcept;
+
+    Version::Version get_vcos_version() const noexcept;
+
+    uint get_mmal_minimum() const noexcept;
+
     uint is_opencv2() const noexcept;
 
 private:
 
 };
 
-
+}
 

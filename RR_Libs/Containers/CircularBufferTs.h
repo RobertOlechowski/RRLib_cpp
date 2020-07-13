@@ -1,9 +1,10 @@
 #pragma once
+
 #include "CircularBuffer.h"
 #include <mutex>
 #include <condition_variable>
 
-namespace ContainersRR {
+namespace RRLibs::Containers {
 
 template<class T>
 class CircularBufferTs {
@@ -11,23 +12,26 @@ public:
     explicit CircularBufferTs<T>(size_t max_size);
 
     void add(T item);
+
     void add_lock(T item);
 
     T pop();
+
     T pop_lock();
 
     bool is_empty() const noexcept;
+
     bool is_full() const noexcept;
 
 private:
-    CircularBuffer<T> m_guarded_container;
+    CircularBuffer <T> m_guarded_container;
     std::mutex m_mutex;
     std::condition_variable m_cv;
 };
 
 template<class T>
 CircularBufferTs<T>::CircularBufferTs(size_t max_size)
-    : m_guarded_container(max_size) {
+        : m_guarded_container(max_size) {
 }
 
 template<class T>

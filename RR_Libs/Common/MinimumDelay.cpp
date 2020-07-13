@@ -1,10 +1,9 @@
 #include "MinimumDelay.h"
 
 #include <chrono>
-#include <iostream>
 #include <future>
 
-namespace RRUtils {
+namespace RRLibs::Common {
 
 MinimumDelay::MinimumDelay() {
     m_start_time = std::chrono::system_clock::now();

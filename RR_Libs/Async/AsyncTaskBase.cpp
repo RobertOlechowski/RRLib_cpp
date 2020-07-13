@@ -2,7 +2,7 @@
 
 #include <functional>
 
-namespace RRAsyncNS {
+namespace RRLibs::Async {
 
 void AsyncTaskBase::start_async() {
     auto func = std::bind(&AsyncTaskBase::_start_impl, this);

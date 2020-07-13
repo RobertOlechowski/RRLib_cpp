@@ -3,12 +3,11 @@
 #include "Common/NonCopyableNotMovable.h"
 #include "Common/Types.h"
 
-#include <memory>
 #include <future>
 
-namespace RRAsyncNS {
+namespace RRLibs::Async {
 
-class AsyncTaskBase : public RRUtils::NonCopyableNotMovable {
+class AsyncTaskBase : public Common::NonCopyableNotMovable {
 public:
     ~AsyncTaskBase() override = default;
 

@@ -1,6 +1,8 @@
 #pragma once
 
-enum class CppVersionsEnum{
+namespace RRLibs::SysInfo {
+
+enum class CppVersionsEnum {
     Unknown = -1,
     Cpp98 = 0,
     Cpp03,
@@ -10,15 +12,25 @@ enum class CppVersionsEnum{
     cpp20,
 };
 
-enum class CompilerEnum{
+enum class CompilationMode {
+    Unknown = -1,
+    Debug,
+    Release,
+    RelWithDebugInfo,
+    MinSizeRel,
+};
+
+enum class CompilerEnum {
     Unknown = -1,
     Clang = 1,
     Visual_Studio,
     GCC,
 };
 
-enum class OsEnum{
+enum class OsEnum {
     Unknown = -1,
     Windows = 1,
     Linux,
 };
+
+}

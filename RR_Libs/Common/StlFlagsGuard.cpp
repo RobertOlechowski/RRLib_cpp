@@ -1,7 +1,7 @@
 #include "StlFlagsGuard.h"
 #include <iostream>
 
-namespace RRUtils {
+namespace RRLibs::Common {
 
 StlFlagsGuard::StlFlagsGuard() {
     m_f = std::cout.flags();

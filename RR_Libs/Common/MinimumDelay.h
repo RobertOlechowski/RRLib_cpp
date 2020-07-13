@@ -5,9 +5,9 @@
 
 #include <chrono>
 
-namespace RRUtils {
+namespace RRLibs::Common {
 
-class MinimumDelay : public RRUtils::NonCopyableNotMovable {
+class MinimumDelay : public Common::NonCopyableNotMovable {
 public:
     MinimumDelay();
 

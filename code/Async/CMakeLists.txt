@@ -1,17 +1,10 @@
-project(Async)
+cmake_minimum_required(VERSION 3.13.0 FATAL_ERROR)
+set(CMAKE_CXX_STANDARD 17)
 
-add_library(${PROJECT_NAME} STATIC
-        AsyncTaskBase.cpp
-        AsyncTaskBase.h
-        TasksCollection.cpp
-        TasksCollection.h
-        ThreadSync.cpp
-        ThreadSync.h
-        )
+add_subdirectory(code)
+#add_subdirectory(demoApp)
 
 
-target_link_libraries(${PROJECT_NAME} INTERFACE Common)
-target_include_directories(${PROJECT_NAME} PUBLIC ../.)
 
 
 

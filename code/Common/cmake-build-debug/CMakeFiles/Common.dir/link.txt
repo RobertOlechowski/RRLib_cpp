@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCommon.a  CMakeFiles/Common.dir/StlFlagsGuard.o CMakeFiles/Common.dir/MinimumDelay.o CMakeFiles/Common.dir/Converter.o CMakeFiles/Common.dir/Asserts.o
+/usr/bin/ranlib libCommon.a
